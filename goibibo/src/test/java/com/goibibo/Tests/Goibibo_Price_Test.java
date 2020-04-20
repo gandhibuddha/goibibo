@@ -11,5 +11,6 @@ public class Goibibo_Price_Test extends ParentClass {
 	  ParentClass pc = new ParentClass();
 	  pc.browserSetup("Remote-Chrome");
 	  
+	  
   }
 }
