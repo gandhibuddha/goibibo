@@ -1,6 +1,4 @@
 package com.goibibo.PageObjects;
-import com.goibibo.ParentClass;
-
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -11,19 +9,29 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Goibibo_Price {
-	 WebDriver driver;
-	    WebDriverWait wait;
-	    public Properties prop = null;
+    WebDriver driver;  
+	WebDriverWait wait;
+		//  ParentClass pc = new ParentClass();
+	   // public Properties prop = null;
 	    public Goibibo_Price(WebDriver driver) {
 	        this.driver = driver;
 	        PageFactory.initElements(driver, this);
-	        wait = new WebDriverWait(driver, 30);
-	        prop = ParentClass.envProperties();
-	        driver.get(prop.getProperty("url"));
+	       // wait = new WebDriverWait(driver, 30);
+	       // prop = ParentClass.envProperties();
 	    }
-	    @FindBy(how = How.XPATH, using = "//select[@name='Product Type']")
-	    private WebElement productType;
-	    public WebElement getProductType() {
-	        return productType;
+	    @FindBy(how = How.XPATH, using = "//input[@type='text'][@id='gosuggest_inputSrc']")
+	    private WebElement fromflight;
+	    @FindBy(how = How.XPATH, using = "//input[@id='gosuggest_inputDest']")
+	    private WebElement toflight;
+	    @FindBy(how = How.XPATH, using = "//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")
+	    private WebElement nextmonth;
+	    public WebElement getfromflight() {
+	        return fromflight;
+	    }
+	    public WebElement gettoflight() {
+	        return toflight;
+	    }
+	    public WebElement getnextmontht() {
+	        return nextmonth;
 	    }
 }
