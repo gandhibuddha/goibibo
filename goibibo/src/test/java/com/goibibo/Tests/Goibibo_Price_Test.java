@@ -23,15 +23,15 @@ public class Goibibo_Price_Test extends ParentClass {
 		driver = new ChromeDriver();
 		driver.get(envProperties().getProperty("url"));
 		driver.manage().window().maximize();
-		gp.getfromflight().sendKeys("del");
+		gp.fromflight().sendKeys("delh");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		gp.getfromflight().sendKeys(Keys.ARROW_DOWN);
-		gp.getfromflight().sendKeys(Keys.ENTER);
-		gp.gettoflight().sendKeys("mumbai");
+		gp.fromflight().sendKeys(Keys.ARROW_DOWN);
+		gp.fromflight().sendKeys(Keys.ENTER);
+		gp.toflight().sendKeys("mumbai");
 		Thread.sleep(2000);
-		gp.gettoflight().sendKeys(Keys.ARROW_DOWN);
-		gp.gettoflight().sendKeys(Keys.ENTER);
-		gp.getnextmontht().click();
+		gp.toflight().sendKeys(Keys.ARROW_DOWN);
+		gp.toflight().sendKeys(Keys.ENTER);
+		gp.nextmontht().click();
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("span[id='price_20200504']");
 		list.add("span[id='price_20200505']");
@@ -64,7 +64,7 @@ public class Goibibo_Price_Test extends ParentClass {
 			}
 		}
 		System.out.println(list.get(j));
-		driver.findElement(By.cssSelector("j"));
+		driver.findElement(By.cssSelector("j")).click();
 	}
 
 	  }

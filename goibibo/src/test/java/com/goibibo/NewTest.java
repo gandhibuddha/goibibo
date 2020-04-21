@@ -1,5 +1,7 @@
 package com.goibibo;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
@@ -10,21 +12,27 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class NewTest {
+public class NewTest extends ParentClass{
 	@Test
-	public void f() throws InterruptedException {
+	public void f() throws InterruptedException, IOException {
 		System.setProperty("webdriver.chrome.driver",
 				"D:\\ws.automation\\goibibo\\src\\main\\java\\resources\\drive\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		Properties p = new Properties();
-		driver.get("https://www.goibibo.com/");
+//		Properties p = new Properties();
+//		FileInputStream fis = new FileInputStream("C:\\Users\\Gandhi Buddha.GANDHIB-1LL\\git\\goibibo\\goibibo\\src\\main\\java\\resources\\TestData\\goibibo.properties");
+//    	p.load(fis);
+//		driver.get(p.getProperty("url"));
+		driver.get(envProperties().getProperty("url"));
 		driver.manage().window().maximize();
 		WebElement w = driver.findElement(By.xpath("//input[@type='text'][@id='gosuggest_inputSrc']"));
-		w.sendKeys("del");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		w.sendKeys("delhi");
+		//Thread.sleep(2000);
 		w.sendKeys(Keys.ARROW_DOWN);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		w.sendKeys(Keys.ENTER);
 		WebElement w1 = driver.findElement(By.xpath("//input[@id='gosuggest_inputDest']"));
 		w1.sendKeys("mumbai");
@@ -64,10 +72,10 @@ public class NewTest {
 			}
 		}
 		System.out.println(list.get(j));
-		driver.findElement(By.cssSelector("j"));
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebElement w2 = driver.findElement(By.cssSelector("j"));
+		wait.until(ExpectedConditions.elementToBeClickable(w2)).click();
+		driver.findElement(By.xpath("//button[text()='SEARCH']")).click();
 	}
 
 }
-
-//list 2 is array of the prices
-//list 3 is the sorted array of prices

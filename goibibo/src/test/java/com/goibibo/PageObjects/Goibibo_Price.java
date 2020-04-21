@@ -20,18 +20,18 @@ public class Goibibo_Price {
 	       // prop = ParentClass.envProperties();
 	    }
 	    @FindBy(how = How.XPATH, using = "//input[@type='text'][@id='gosuggest_inputSrc']")
-	    private WebElement fromflight;
+	     WebElement fromflight;
 	    @FindBy(how = How.XPATH, using = "//input[@id='gosuggest_inputDest']")
-	    private WebElement toflight;
+	     WebElement toflight;
 	    @FindBy(how = How.XPATH, using = "//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")
-	    private WebElement nextmonth;
-	    public WebElement getfromflight() {
+	     WebElement nextmonth;
+	    public WebElement fromflight() {
 	        return fromflight;
 	    }
-	    public WebElement gettoflight() {
+	    public WebElement toflight() {
 	        return toflight;
 	    }
-	    public WebElement getnextmontht() {
+	    public WebElement nextmontht() {
 	        return nextmonth;
 	    }
 }
